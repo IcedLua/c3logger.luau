@@ -199,7 +199,7 @@ function c3l:trace(...)
 	local self: typeof(c3l.new(any)) = (self :: any)
 	
 	if PRIORITY[self.priority] <= PRIORITY.trace then
-		c3l:log(...)
+		self:log(...)
 	end
 end
 
@@ -207,7 +207,7 @@ function c3l:debug(...)
 	local self: typeof(c3l.new(any)) = (self :: any)
 
 	if PRIORITY[self.priority] <= PRIORITY.trace then
-		c3l:log(...)
+		self:log(...)
 	end
 end
 
@@ -215,16 +215,16 @@ function c3l:info(...)
 	local self: typeof(c3l.new(any)) = (self :: any)
 
 	if PRIORITY[self.priority] <= PRIORITY.trace then
-		c3l:log(...)
+		self:log(...)
 	end
 end
 
 function c3l:warn(...) -- Warnings NEVER sleep.
-	warn(c3l:getLoggable(...))
+	warn(self:getLoggable(...))
 end
 
 function c3l:error(...) -- Oh and errors ig
-	error(c3l:getLoggable(...))
+	error(self:getLoggable(...))
 end
 
 function c3l:logAssert(x:any, ...: any)
