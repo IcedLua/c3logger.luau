@@ -191,7 +191,7 @@ function c3l:log(...)
 
 
 	if not self.silent then
-		print(self:getLoggable())
+		print(self:getLoggable(...))
 	end
 end
 
