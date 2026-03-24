@@ -13,6 +13,27 @@ First, it has FOUR levels of UwUifying:
 
 1. I reccomend you prefix like this: `{server}`, `<client>`, `(storyboard)`... or just do what you want it's just a suggestion.
 
+## Example:
+> Logs from unreleased game developed by me (man theres like 7 of those)
+```
+  {server} cwient ready: icedwuau
+  {server} wechecking data for i-icedwuau ( IcedLuau )
+  [ProfileStore]: Roblox API services available - data will be saved
+  Profile loaded for IcedLuau!
+  {server} wechecking data for icedluau ( IcedLuau )
+  <hotbar> updating data for a3
+  <hotbar> updating data for ult
+  <hotbar> uwt wiwl use uwtimate bar
+  <hotbar> updating data for bwock
+  <hotbar> bwock wiwl use a mobile button
+  <hotbar> updating data for basic
+  <hotbar> basic wiwl use a mobiwe button
+  <hotbar> u-updating data for agiwity
+  <hotbar> agiwity wiwl use a mobiwe button
+  <hotbar> updating data for a1
+  <hotbar> updating data for a2
+  ```
+
 <details>
 <summary>AI Usage</summary>
 
