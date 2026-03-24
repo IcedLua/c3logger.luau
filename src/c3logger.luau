@@ -195,28 +195,27 @@ function c3l:log(...)
 	end
 end
 
-function c3l:trace(...)
+function c3l:logLevel(level: priorityLevel, ...)
 	local self: typeof(c3l.new(any)) = (self :: any)
 	
-	if PRIORITY[self.priority] <= PRIORITY.trace then
+	if PRIORITY[self.priority] <= PRIORITY[level] then
 		self:log(...)
 	end
+end
+
+--[[
+Wrappers for logLevel because I can't be bothered to change my old code.
+]]
+function c3l:trace(...)
+	self:logLevel("trace", ...)
 end
 
 function c3l:debug(...)
-	local self: typeof(c3l.new(any)) = (self :: any)
-
-	if PRIORITY[self.priority] <= PRIORITY.trace then
-		self:log(...)
-	end
+	self:logLevel("debug", ...)
 end
 
 function c3l:info(...)
-	local self: typeof(c3l.new(any)) = (self :: any)
-
-	if PRIORITY[self.priority] <= PRIORITY.trace then
-		self:log(...)
-	end
+	self:logLevel("info", ...)
 end
 
 function c3l:warn(...) -- Warnings NEVER sleep.
