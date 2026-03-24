@@ -11,7 +11,7 @@ First, it has FOUR levels of UwUifying:
 
 ### Simple Tips:
 
-1. I reccomend you prefix like this: {server}, <client>, (storyboard)... or just do what you want it's just a suggestion.
+1. I reccomend you prefix like this: `{server}`, `<client>`, `(storyboard)`... or just do what you want it's just a suggestion.
 
 <details>
 <summary>AI Usage</summary>
