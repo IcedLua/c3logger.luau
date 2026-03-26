@@ -14,7 +14,7 @@ First, it has FOUR levels of UwUifying:
 1. I reccomend you prefix like this: `{server}`, `<client>`, `(storyboard)`... or just do what you want it's just a suggestion.
 
 ## Example:
-> Logs from unreleased game developed by me (man theres like 7 of those)
+> Logs from unreleased game developed by me (man theres like 20 of those) (i should really release games)
 ```
   {server} cwient ready: icedwuau
   {server} wechecking data for i-icedwuau ( IcedLuau )
