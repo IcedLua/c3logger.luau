@@ -9,7 +9,7 @@ First, it has FOUR levels of UwUifying:
 * Always - Always applies, but still respects readability (vowel rule still applies), always stutters for LONG words
 * Hyper - Always **always** applies, stuttering for EVERY word no matter length
 
-### Simple Tips:
+## Simple Tips:
 
 1. I reccomend you prefix like this: `{server}`, `<client>`, `(storyboard)`... or just do what you want it's just a suggestion.
 
@@ -34,9 +34,17 @@ First, it has FOUR levels of UwUifying:
   <hotbar> updating data for a2
   ```
 
+## Addressing AI + Why was this made?
+In my opinion, AI is a good tool. If we compare oats to AI (I do intend to offend oat lovers), and human made to Froot Loops (or any cereal of your choice), then, would you want to open a box of Froot Loops... to find oats? Would you rather get a box of oats and it have oats inside? Would you rather it say it has oats on the box? I do not want AI masquerading as human made code. This is why I made C3L. Spite. I can be CERTAIN this is human made. And, what about an unmarked box in the Froot Loop section, hmm? Perhaps that is even worse than oats in a Froot Loop box.
+(Personally I'd rather AI to be disclosed or them LYING over just not disclosing it.)
+
+### Ok, so, why?
+UwUlogger. Seems like a great tool, it probably is, but, unmarked. AI? Human? Sure does scream AI. Use it if you want, I guess. But, c3l was made out of spite. That's why. But do go check it out, don't harrass the creator on the basis of "seems like it", or, like, don't do it at all, using AI is not a reason to do that. 
+[UwULogger on DevForum](https://devforum.roblox.com/t/uwulogger-v110-intensity-levels-table-printing-and-a-logger-that-refuses-to-be-silenced/4465388/1)
+
 <details>
 <summary>AI Usage</summary>
-
+  
 <!-- markdown is hard i just use yaml ok? -->
 ```yaml
 Code:
