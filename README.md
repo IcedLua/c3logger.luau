@@ -1,6 +1,6 @@
 # C3Logger (colon3logger)
 
-> A simple crossplatform Luau logger that UwUifies your logs... or just keeps them normal, if you're *boring*.
+> A simple crossplatform **Luau** logger (**NO LUA**) that UwUifies your logs... or just keeps them normal, if you're *boring*.
 
 First, it has FOUR levels of UwUifying:
 
