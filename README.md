@@ -4,10 +4,10 @@
 
 First, it has FOUR levels of UwUifying:
 
-* None - *boring*
-* Default - Kinda random application, randomly stutters for long words
-* Always - Always applies, but still respects readability (vowel rule still applies), always stutters for LONG words
-* Hyper - Always **always** applies, stuttering for EVERY word no matter length
+* None - "Hello, world!" *boring*
+* Default - "hewwo, wowld!" Kinda random application, randomly stutters for long words (`#word > 7 and math.random() < 0.1`) 
+* Always - "h-hewwo, w-wowld!" Always applies, but only after vowels, always stutters for words longer than 2 (`#word > 2`) [SUBJECT TO CHANGE]
+* Hyper - "h-hewwo, w-wowwd!" Always **always** applies, stuttering for EVERY word no matter length
 
 ## Simple Tips:
 
