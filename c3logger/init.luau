@@ -120,6 +120,7 @@ local ENDINGS = {
 	[byte "-"] = true,
 }
 
+
 --[[
 !!CONSTRUCTOR!!
 
