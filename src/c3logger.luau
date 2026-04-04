@@ -180,7 +180,11 @@ function c3l:getLoggable(...: any): (string, ...any)
 		end
 	end
 
-	return self.prefix, table.unpack(toPrint)
+	if self.prefix then
+		return self.prefix, table.unpack(toPrint)
+	else
+		return table.unpack(toPrint)
+	end
 end
 
 --[[
