@@ -222,10 +222,6 @@ function c3l:warn(...) -- Warnings NEVER sleep.
 	warn(self:getLoggable(...))
 end
 
-function c3l:error(...) -- Oh and errors ig
-	error(self:getLoggable(...))
-end
-
 function c3l:logAssert(x:any, ...: any)
 	if not x then
 		self:log(...)
