@@ -2,19 +2,22 @@
 
 > A simple crossplatform **Luau** logger (**NO LUA**) that UwUifies your logs... or just keeps them normal, if you're *boring*.
 
-First, it has FOUR levels of UwUifying:
 
+# Main Features
+## UwUifying
+This has 4 levels.
 * None - "Hello, world!" *boring*
 * Default - "hewwo, wowld!" Kinda random application, randomly stutters for long words (`#word > 7 and math.random() < 0.1`) 
 * Always - "h-hewwo, w-wowld!" Always applies, but only after vowels, always stutters for words longer than 2 (`#word > 2`) [SUBJECT TO CHANGE]
 * Hyper - "h-hewwo, w-wowwd!" Always **always** applies, stuttering for EVERY word no matter length
+## Formatting
+ugh i dont wanna write this
 
 ## Simple Tips:
 
-1. I reccomend you prefix like this: `{server}`, `<client>`, `(storyboard)`... or just do what you want it's just a suggestion.
+1. I reccomend you prefix like this: `{server}`, `<client>`, `(other)`... or just do what you want it's just a suggestion.
 
 ## Example:
-> Logs from unreleased game developed by me (man theres like 20 of those) (i should really release games)
 ```
   {server} cwient ready: icedwuau
   {server} wechecking data for i-icedwuau ( IcedLuau )
