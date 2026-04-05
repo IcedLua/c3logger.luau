@@ -1,43 +1,47 @@
 --!strict
 -- c3LOGGER (colon three logger)
+-- By IcedLua
+--[[
+    MIT License
 
--- // CONFIGURATION // --
--- EDIT THIS!
---local cross = require("@self/cross") -- Luauberries Cross Module. (https://libs.luau.lol/) (https://github.com/gaymeowing/luauberries)
--- Cross is currently unused. But DO insert it under the script if you plan on updating.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    Copyright (c) 2026 IcedLuau
+    
+    Permission is hereby granted, free of charge, to any person obtaining a copy
+    of this software and associated documentation files (the "Software"), to deal
+    in the Software without restriction, including without limitation the rights
+    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+    copies of the Software, and to permit persons to whom the Software is
+    furnished to do so, subject to the following conditions:
+    
+    The above copyright notice and this permission notice shall be included in all
+    copies or substantial portions of the Software.
+    
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+    SOFTWARE.
+]]
 
 -- // Code // --
-local any: any = nil
-
 local c3l = {}
 c3l.__index = c3l
-type styleLevel = "none" | "default" | "always" | "hyper"
-type priorityLevel = "trace" | "debug" | "info"
+export type styleLevel = "none" | "default" | "always" | "hyper"
+export type priorityLevel = "trace" | "debug" | "info" | "danger"
+export type bothTables = {any} & {[any]: any}
 
 local byte: (string) -> number = (string.byte :: any)
 
-local PRIORITY = {
+local PRIORITY: {[priorityLevel]: number} = {
 	trace = 0,
 	debug = 1,
 	info = 2,
 	danger = 3, -- Anything other than a log
 }
+
+c3l.PriorityEnum = PRIORITY
 
 local VOWELS = {
 	[byte "a"] = true,
@@ -133,9 +137,7 @@ function c3l:stylize(text: string, level: styleLevel?): string
 	return table.concat(processedWords, " ")
 end
 
-function c3l:getLoggable(...: any): (string, ...any)
-	local self: typeof(c3l.new(any)) = (self :: any)
-	
+function c3l:getLoggable(...: any): ...any
 	local packed = {...}
 	local toPrint: {any} = {}
 	for _, printable in packed do
@@ -146,7 +148,7 @@ function c3l:getLoggable(...: any): (string, ...any)
 			local seen = {}
 			local reconstruction: {any | string} | string = {} -- even though string is UNREACHABLE on first attempt, i wish to satiate luau's type solver in the fast way.
 
-			local function applyToTable(tab): {any} | string -- partially ai assisted
+			local function applyToTable(tab: bothTables): {any} | string -- partially ai assisted
 				if seen[tab] then
 					return self:stylize("** cyclic reference detected **")
 				end
@@ -187,67 +189,81 @@ function c3l:getLoggable(...: any): (string, ...any)
 	end
 end
 
---[[
-Does not have any leveling, perhaps use the other ones?
-]]
+--[=[
+## :log() - [METHOD]
+Ignores priority, can be silenced.
+Takes in a `"printable"`. (`Tuple` of printable types.)
+]=]
 function c3l:log(...)
-	local self: typeof(c3l.new(any)) = (self :: any)
-
-
-	if not self.silent then
-		print(self:getLoggable(...))
-	end
+    if not self.silent then
+        print((self :: any):getLoggable(...)) 
+    end
 end
 
+--[=[
+## :logLevel - [METHOD]
+Runs :log() ONLY if the priority level is higher or equal to the currently set one.
+Can be silenced.
+]=]
 function c3l:logLevel(level: priorityLevel, ...)
-	local self: typeof(c3l.new(any)) = (self :: any)
-	
-	if PRIORITY[self.priority] <= PRIORITY[level] then
+	if PRIORITY[self.priority :: priorityLevel] <= PRIORITY[level] then
 		self:log(...)
 	end
 end
 
---[[
-Wrappers for logLevel because I can't be bothered to change my old code.
-]]
+--[=[
+## :trace() - [METHOD]
+Priority 0. Logs only when set priority is less than or equal to this function's priority.
+Can be silenced.
+]=]
 function c3l:trace(...)
 	self:logLevel("trace", ...)
 end
 
+--[=[
+## :debug() - [METHOD]
+Priority 1. Logs only when set priority is less than or equal to this function's priority.
+Can be silenced.
+]=]
 function c3l:debug(...)
 	self:logLevel("debug", ...)
 end
 
+--[=[
+## :info() - [METHOD]
+Priority 2. Logs only when set priority is less than or equal to this function's priority.
+Can be silenced.
+]=]
 function c3l:info(...)
 	self:logLevel("info", ...)
 end
 
+--[=[
+## :warn() - [METHOD]
+Priority 3. Logs only when set priority is less than or equal to this function's priority.
+Cannot be silenced. Respects priority.
+]=]
 function c3l:warn(...) -- Warnings NEVER sleep.
-	warn(self:getLoggable(...))
+    if PRIORITY[self.priority :: priorityLevel] <= PRIORITY["danger"] then
+	    warn((self :: any):getLoggable(...))
+    end
 end
 
-function c3l:logAssert(x:any, ...: any)
+--[=[
+## :logAssert() - [METHOD]
+Priority 3. Logs only when set priority is less than or equal to this function's priority AND IF x is falsy..
+Cannot be silenced. Respects priority.
+]=]
+function c3l:logAssert(x: any, ...: any)
 	if not x then
-		self:log(...)
+		self:logLevel("danger", ...)
 	end
 end
 
-function c3l:warnAssert(x:any, ...: any)
+function c3l:warnAssert(x: any, ...: any)
 	if not x then
 		self:warn(...)
 	end
 end
-
-function c3l:errorAssert(x:any, ...:any)
-	if not x then
-		self:error(...)
-	end
-end
-
---if cross.runtime == "NONE" then
-	local logger = c3l.new("[C3L]", "hyper")
-	-- logger:warn("C3L is most optimized for Lune or Roblox!")
-	logger:warnAssert(buffer, "this enviornment doesn't support buffers. Please do NOT use UwUifier as it WILL crash your code.")
---end
 
 return c3l
