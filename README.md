@@ -48,7 +48,7 @@ UwUlogger. Seems like a great tool, it probably is, but, unmarked. AI? Human? Su
 <!-- markdown is hard i just use yaml ok? -->
 ```yaml
 Code:
-    - Structure: 1% AI (for log level names)
+    - Structure: 0.001% AI (for log level names)
     - Stylizer: 90% AI (UwUifier and table deep cloner)
     - Other: 0% AI
 ReadMe:
