@@ -52,6 +52,10 @@ export type c3lObject = {
         fusion: boolean,
         ansiColors: boolean, -- Very smart default.
         nextAnsi: {string},
+        table: {
+            uwuify: boolean,
+            allFormats: boolean,
+        }
     }
 } & typeof(setmetatable({}, c3l))
 export type styleLevel = "none" | "default" | "always" | "hyper"
@@ -151,6 +155,10 @@ function c3l.new(prefix: string?, level: styleLevel?): c3lObject
 			fusion = true,
             ansiColors = if RUNTIME == "Roblox" then false else true, -- Very smart default.
             nextAnsi = {},
+            table = {
+                uwuify = false, -- For whatever reason AI just HATES it when I UwUify my keys, so, whenever I ask it "hey, is sending the right data" it goes "oh my gosh the keys they're DIFFERENT!!"
+                allFormats = true,
+            }
 		}
 	}, c3l)
 end
@@ -233,7 +241,8 @@ function c3l.getLoggable(self: c3lObject, ...: any): ...any
 		if typeof(printable) == "string" then
 			local styled = self:stylize(printable)
 			table.insert(toPrint, styled)
-		elseif typeof(printable) == "table" then				
+		elseif typeof(printable) == "table" then		
+            if not self.formatting.table.allFormats then table.insert(toPrint, printable) continue end		
 			local seen = {}
 			local reconstruction: {any | string} | string = {} -- even though string is UNREACHABLE on first attempt, i wish to satiate luau's type solver in the fast way.
 
@@ -255,7 +264,7 @@ function c3l.getLoggable(self: c3lObject, ...: any): ...any
 				seen[tab] = myNew
 
 				for i, v in pairs(tab) do
-					local newKey = if typeof(i) == "table" then applyToTable(i) else self:stylize(i) -- haha uwu keys
+					local newKey = if typeof(i) == "table" then applyToTable(i) elseif self.formatting.table.uwuify then self:stylize(i) else i -- haha uwu keys
 					local newValue = if typeof(v) == "table" then applyToTable(v) else v
 
 					myNew[newKey] = newValue
