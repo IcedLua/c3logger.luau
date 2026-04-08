@@ -4,7 +4,7 @@ Really simple, just create a PR, and if you don't know how to do this, use Youtu
 
 ## Code LAWS (for humans)
 > if you violate these i'm sending you to GAOL!!!!
-1. Strange one, but, the `-- // Code // --` comment header MUST be at line 25.
+1. If borrowing code, I'd prefer you use MIT, otherwise you can use MIT compatible licenses, if you provide them in the file.
 2. PLEASE don't write dictionaries horizontally like `{ a=true, b=false }`, it is horrible. Write them vertically like
   ```luau
 local ENDINGS = { 
