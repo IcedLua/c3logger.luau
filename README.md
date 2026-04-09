@@ -11,7 +11,10 @@ This has 4 levels.
 * Always - "h-hewwo, w-wowld!" Always applies, but only after vowels, always stutters for words longer than 2 (`#word > 2`) [SUBJECT TO CHANGE]
 * Hyper - "h-hewwo, w-wowwd!" Always **always** applies, stuttering for EVERY word no matter length
 ## Formatting
-ugh i dont wanna write this
+blah blah
+
+## RBX-ts
+This comes with Roblox Typescript types, but.... you'll have to make a slight change to the Luau, instead of returning c3logger, return {default = c3logger}
 
 ## Simple Tips:
 
