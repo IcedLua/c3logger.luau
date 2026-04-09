@@ -52,12 +52,14 @@ export type c3lObject = {
         fusion: boolean,
         ansiColors: boolean, -- Very smart default.
         nextAnsi: {string},
+		nextModifier: {modifier},
         table: {
             uwuify: boolean,
             allFormats: boolean,
         }
     }
 } & typeof(setmetatable({}, c3l))
+export type modifier = "noPrefix"
 export type styleLevel = "none" | "default" | "always" | "hyper"
 export type priorityLevel = "trace" | "debug" | "info" | "danger"
 export type bothTables = {any} & {[any]: any}
@@ -155,6 +157,7 @@ function c3l.new(prefix: string?, level: styleLevel?): c3lObject
 			fusion = true,
             ansiColors = if RUNTIME == "Roblox" then false else true, -- Very smart default.
             nextAnsi = {},
+			nextModifier = {},
             table = {
                 uwuify = false, -- For whatever reason AI just HATES it when I UwUify my keys, so, whenever I ask it "hey, is sending the right data" it goes "oh my gosh the keys they're DIFFERENT!!"
                 allFormats = true,
@@ -168,11 +171,24 @@ end
 Applies an ANSI style to the NEXT log.
 Can be stacked.
 Resets each time logged.
-
+Returns self (chainable)
 ]=]
 function c3l.styleNext(self: c3lObject, style: ansiStyle)
     table.insert(self.formatting.nextAnsi, ANSI[style])
+	return self
 end
+
+--[=[
+## :styleNext(ansiStyle) [METHOD]
+Applies an ANSI style to the NEXT log.
+Can be stacked.
+Resets each time logged.
+Returns self (chainable)
+]=]
+--[[function c3l.modifyNext(self: c3lObject, modifier: modifier)
+    table.insert(self.formatting.nextModifier, ANSI[style])
+	return self
+end]]
 
 --[=[
 ## :stylize(string, styleLevel?) [METHOD/FUNCTION]
