@@ -19,22 +19,18 @@ ugh i dont wanna write this
 
 ## Example:
 ```
-  {server} cwient ready: icedwuau
-  {server} wechecking data for i-icedwuau ( IcedLuau )
-  [ProfileStore]: Roblox API services available - data will be saved
-  Profile loaded for IcedLuau!
-  {server} wechecking data for icedluau ( IcedLuau )
-  <hotbar> updating data for a3
-  <hotbar> updating data for ult
-  <hotbar> uwt wiwl use uwtimate bar
-  <hotbar> updating data for bwock
-  <hotbar> bwock wiwl use a mobile button
-  <hotbar> updating data for basic
-  <hotbar> basic wiwl use a mobiwe button
-  <hotbar> u-updating data for agiwity
-  <hotbar> agiwity wiwl use a mobiwe button
-  <hotbar> updating data for a1
-  <hotbar> updating data for a2
+  {Rooms} initializing sewver roommanager...
+  *Room1* initiawizing wogic for woom1
+  *Room1* sewver loading logic for woom woom1
+  {Rooms} toggwing door for woom1: fawse
+  {Rooms} loaded woom wogic fow: woom1
+  {Main} pwayer icedwuau joinyed the game.
+  {Main} genyewating bawl c-character for pwayew: i-icedwuau
+  {Main} bawl chawacter weady for playew: icedluau
+  {Rooms} setting up pwogwess for pwayew: icedwuau
+  {Rooms} syncing pwogwess to icedluau: active=room1
+  <Character> character weady weceived. setting up camewa and contwows.
+  <Character> camewa subject set to h-humanoidrootpart
   ```
 
 ## Addressing AI + Why was this made?
