@@ -18,7 +18,7 @@ Info - 2 `:info()`
 Danger - 3 `:warn() | :warnAssert() | :logAssert`
 Always - `nolevel` `:print() :log()`
 
-All levels below 2 are silencible, as well as :log().
+All levels below 3 are silencible, as well as :log().
 ## Formatting
 blah blah
 
