@@ -10,6 +10,15 @@ This has 4 levels.
 * Default - "hewwo, wowld!" Kinda random application, randomly stutters for long words (`#word > 7 and math.random() < 0.1`) 
 * Always - "h-hewwo, w-wowld!" Always applies, but only after vowels, always stutters for words longer than 2 (`#word > 2`) [SUBJECT TO CHANGE]
 * Hyper - "h-hewwo, w-wowwd!" Always **always** applies, stuttering for EVERY word no matter length
+## Log Levels
+There are the basic log levels, being:
+Trace - 0 `:trace()`
+Debug - 1 `:debug()`
+Info - 2 `:info()`
+Danger - 3 `:warn() | :warnAssert() | :logAssert`
+Always - `nolevel` `:print() :log()`
+
+All levels below 2 are silencible, as well as :log().
 ## Formatting
 blah blah
 
@@ -19,6 +28,13 @@ This comes with Roblox Typescript types, but.... you'll have to make a slight ch
 ## Simple Tips:
 
 1. I reccomend you prefix like this: `{server}`, `<client>`, `(other)`... or just do what you want it's just a suggestion.
+2. For colourful logging in **Lune**, you can use this (not bundled as this is cross runtime.)
+  ```luau
+  function writeColor(color: c3l.ansiStyle)
+      stdio.write(myLogger.ANSI[color])
+  end
+-- This is preferred over stylenext as stylenext has the side effect of adding a space before and after your logging
+  ```
 
 ## Example:
 ```
