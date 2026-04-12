@@ -1,5 +1,5 @@
 --!strict
--- c3LOGGER (colon three logger) 1.0
+-- c3LOGGER (colon three logger) 1.1
 -- By IcedLuau
 -- https://github.com/IcedLua (Aka IcedLuau/Blueb-rry)
 -- Licensed under MIT (bundled below) - Copyright (c) 2026 IcedLuau
