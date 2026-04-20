@@ -1,5 +1,5 @@
 --!strict
--- c3LOGGER (colon three logger) 1.2
+-- c3LOGGER (colon three logger) 1.2.1
 -- By IcedLuau
 -- https://github.com/IcedLua (Aka IcedLuau/Blueb-rry)
 -- Licensed under MIT (bundled below) - Copyright (c) 2026 IcedLuau
@@ -174,7 +174,7 @@ Resets each time logged.
 Returns self (chainable)
 ]=]
 function c3l.styleNext(self: c3lObject, style: ansiStyle)
-	if not self.formatting.ansiColors then self:warn("(C3L) Attempt to use styleNext, ansi is disabled.")
+	if not self.formatting.ansiColors then self:warn("(C3L) Attempt to use styleNext, ansi is disabled.") end
     table.insert(self.formatting.nextAnsi, ANSI[style])
 	return self
 end
