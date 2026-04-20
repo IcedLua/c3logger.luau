@@ -1,5 +1,5 @@
 --!strict
--- c3LOGGER (colon three logger) 1.1
+-- c3LOGGER (colon three logger) 1.2
 -- By IcedLuau
 -- https://github.com/IcedLua (Aka IcedLuau/Blueb-rry)
 -- Licensed under MIT (bundled below) - Copyright (c) 2026 IcedLuau
@@ -50,7 +50,7 @@ export type c3lObject = {
     priority: priorityLevel,
     formatting: {
         fusion: boolean,
-        ansiColors: boolean, -- Very smart default.
+        ansiColors: boolean,
         nextAnsi: {string},
 		nextModifier: {modifier},
         table: {
@@ -155,7 +155,7 @@ function c3l.new(prefix: string?, level: styleLevel?): c3lObject
 		priority = "trace":: priorityLevel,
 		formatting = {
 			fusion = true,
-            ansiColors = if RUNTIME == "Roblox" then false else true, -- Very smart default.
+            ansiColors = if RUNTIME == "Roblox" or RUNTIME == "Lune" then false else true, -- Very smart default... also disabled for lune since the readme function is better.
             nextAnsi = {},
 			nextModifier = {},
             table = {
@@ -174,6 +174,7 @@ Resets each time logged.
 Returns self (chainable)
 ]=]
 function c3l.styleNext(self: c3lObject, style: ansiStyle)
+	if not self.formatting.ansiColors then self:warn("(C3L) Attempt to use styleNext, ansi is disabled.")
     table.insert(self.formatting.nextAnsi, ANSI[style])
 	return self
 end
